@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Compute It</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./css/fonts.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/shCore.css">
+  <link rel="stylesheet" href="./css/shThemeDefault.css">
+  <link rel="stylesheet" href="./css/customized_language.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/source_code.css">
+  <link rel="icon" type="img/png" href="./images/loop_icon.png" />
+  <script src="./scripts/ext_libs/shCore.js"></script>
+  <script src="./scripts/ext_libs/shBrushJScript.js"></script>
+
+  <script src="scripts/main.js"></script>
+
+</head>
+
+
+<body class="lock-screen">
+
+  <div id="challenge_data"></div>
+
+  <button class="menu blur_on_modal">
+    <img src="images/menu.png">
+  </button>
+
+
+  <button class="reset blur_on_modal">
+    <i class="custom_icon icon-trash">&#xe800;</i>
+  </button>
+
+
+
+
+  <div id="welcome"></div>
+
+
+
+  <div id="text_tutorial">
+    <div class="keyboard-keys">
+      <div class="keyboard-key down-key"><i class="custom_icon icon-down-big">&#xe807;</i></div>
+      <div class="keyboard-key left-key"><i class="custom_icon icon-left-big">&#xe808;</i></div>
+      <div class="keyboard-key right-key active"><i class="custom_icon icon-right-big">&#xe809;</i></div>
+      <div class="keyboard-key up-key"><i class="custom_icon icon-up-big">&#xe80a;</i></div>
+    </div>
+  </div>
+
+
+
+  <div id="modal_confirm_reset">
+
+    <div class="modal_content">
+      <div data-translation="are_you_sure" class="confirmation"></div>
+      <button class="close_reset" data-translation="cancel"></button>
+      <button class="confirm_reset" data-translation="reset"></button>
+    </div>
+  </div>
+
+
+
+  <div id="main">
+    <div id="mapContainer">
+      <div id="map"></div>
+    </div>
+  </div>
+
+
+
+  <div id="challenge_selection" class="blur_on_modal">
+    <div class="container">
+    </div>
+  </div>
+
+
+  <div id="sizeSetterContainer" class="code">
+    <div id="sizeSetter"></div>
+  </div>
+
+
+  <div id="end_page">
+
+    <div class="container">
+
+      <div class="laurel-right">
+        <img src="./images/laurel.png">
+      </div>
+      <p data-translation="the_end"></p>
+      <div class="laurel-left">
+        <img src="./images/laurel.png">
+      </div>
+
+      <div class="actions">
+        <button class="menu">
+          <img src="images/menu.png">
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="toxicode_logo" class="blur_on_modal">
+    <img src="./images/loop_logo.png" alt="Loop" height="55" />
+  </div>
+  <div id="translation_logos">
+    <img src="./images/uk_flag.png" alt="English" height="30" data-lang="en" />
+    <img src="./images/spain_flag.png" alt="Spanish" height="30" data-lang="es" />
+    <img src="./images/arabic_flag.png" alt="Arabic" height="30" data-lang="ar" />
+  </div>
+
+
+
+
+  <script>
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    // Function to handle the start of a touch event
+    function handleTouchStart(event) {
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+    }
+
+    // Function to handle the end of a touch event
+    function handleTouchEnd(event) {
+      touchEndX = event.changedTouches[0].clientX;
+      touchEndY = event.changedTouches[0].clientY;
+      handleGesture();
+    }
+
+    // Function to determine the direction of the swipe
+    function handleGesture() {
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX > 0) {
+          // Right swipe
+          triggerAction('right');
+        } else {
+          // Left swipe
+          triggerAction('left');
+        }
+      } else {
+        if (deltaY > 0) {
+          // Down swipe
+          triggerAction('down');
+        } else if (deltaY < 0) {
+          // Up swipe
+          triggerAction('up');
+        }
+      }
+    }
+    const arrowsMap = {
+  up: {text: 'ArrowUp', code: 38},
+  down: {text: 'ArrowDown', code: 40},
+  left: {text: 'ArrowLeft', code: 37},
+  right: {text: 'ArrowRight', code: 39},
+}
+
+function triggerAction(direction) {
+  if (arrowsMap[direction]) {
+    document.dispatchEvent(new KeyboardEvent('keydown', {
+      key: arrowsMap[direction].text,
+      code: arrowsMap[direction].text,
+      which: arrowsMap[direction].code,
+      keyCode: arrowsMap[direction].code,
+      bubbles: true,
+      cancelable: true,
+      composed: true
+    }));
+    document.dispatchEvent(new KeyboardEvent('keyup', {
+      key: arrowsMap[direction].text,
+      code: arrowsMap[direction].text,
+      which: arrowsMap[direction].code,
+      keyCode: arrowsMap[direction].code,
+      bubbles: true,
+      cancelable: true,
+      composed: true
+    }));
+  } 
+}
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchend', handleTouchEnd, false);
+  </script>
+</body>
+
+</html>

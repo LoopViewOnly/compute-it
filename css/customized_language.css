@@ -1,0 +1,111 @@
+
+code.right,
+code.left,
+code.up,
+code.down{
+    color : #003d88;
+}
+
+
+code.digits
+{
+    color : #05a9ed;
+}
+
+code.keywords
+{
+    color : #a73f3f;
+    font-weight: bold;
+}
+
+code.brackets
+{
+    color: #a73f3f;
+    font-weight: bold;
+}
+
+code.js.plain
+{
+    color : #596b88;
+}
+
+code.isBlue {
+    color : #29cbd3;
+}
+code.isGreen {
+    color : rgb(105,224,121);
+}
+code.isRed {
+    color : rgb(222,38,111);
+}
+code.isYellow {
+    color : #f8d800;
+}
+code.isOrange {
+    color : rgb(237,144,0);
+}
+code.isPurple {
+    color : #b782ed;
+}
+
+
+#sizeSetter .custom_icon,
+code .custom_icon{
+    position: relative;
+    font-size: 0.9em;
+}
+
+.colorblind code .custom_icon::before{
+  content: '';
+  color: white;
+  font-family: sans-serif;
+  position: absolute;
+  text-align: center;
+  width: 1em;
+  font-size: 0.8em;
+  top: calc(50% - 0.75em);
+  left: calc(50% - 0.5em);
+  padding: 0;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.colorblind code.isBlue .custom_icon::before{
+    content: "B";
+}
+.colorblind code.isGreen .custom_icon::before{
+    content: "G";
+}
+.colorblind code.isRed .custom_icon::before{
+    content: "R";
+}
+.colorblind code.isYellow .custom_icon::before{
+    content: "Y";
+}
+.colorblind code.isOrange .custom_icon::before{
+    content: "O";
+}
+.colorblind code.isPurple .custom_icon::before{
+    content: "P";
+}
+
+
+.negation .custom_icon::after{
+    content: "";
+    color: #003d88;
+    font-family: "project-icons";
+    position: absolute;
+    font-size: 0.9em;
+    top: calc(50% - 0.68em);
+    left: calc(50% - 0.5em);
+    padding: 0;
+    margin: 0;
+}
+
+
+.colorblind .negation .custom_icon::after{
+    font-size: 1.1em;
+    top: calc(50% - 0.55em);
+    left: calc(50% - 0.5em);
+    z-index: -1;
+}

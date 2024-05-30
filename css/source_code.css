@@ -1,0 +1,75 @@
+
+#sizeSetterContainer {
+    position: absolute;
+    left: 0;
+    top:  0;
+    background-color: red;
+    z-index: -100;
+    visibility: hidden;
+}
+
+
+.syntaxhighlighter {
+    padding:  0;
+    margin:   0;
+    font-size: 12px;
+    overflow: visible;
+}
+
+#sourceCode .syntaxhighlighter {
+    position: absolute;
+    width:    30%;
+    top:      10%;
+    left:     63%;
+    z-index:  1;
+}
+
+.syntaxhighlighter,
+#sourceCode .syntaxhighlighter .line{
+    background: none;
+}
+
+.syntaxhighlighter table,
+.syntaxhighlighter .line,
+.syntaxhighlighter code,
+#sizeSetter {
+    font-family: 'Cutive Mono', Monaco, Consolas, 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#sizeSetter {
+    white-space: pre;
+}
+
+.syntaxhighlighter table td.code .line{
+    padding: 0;
+}
+
+
+.syntaxhighlighter table td.code .line {
+    padding: 0;
+}
+
+body .syntaxhighlighter .code .line .keyword {
+    color: #1fb6c1;
+}
+
+
+
+
+
+.syntaxhighlighter .line {
+  position: relative;
+}
+
+#line_marker {
+  display: none;
+  position: absolute;
+  height: 10px;
+  background: #009688;
+  color: white;
+  top:  0;
+  padding: 0 0.2em;
+  text-align: center;
+  font-size: 0.8em;
+}
