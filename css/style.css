@@ -118,17 +118,19 @@ body {
   position: absolute;
   top: 23px;
   right: 40px;
+  font-weight: bold;
 }
 
-#translation_logos img {
-  transition: filter 0.2s ease-in-out;
+#translation_logos a {
+  text-decoration: none;
+  color: #888;
+  transition: color 0.2s ease-in-out;
 }
 
-#translation_logos img:hover {
-  filter: opacity(0.65);
+#translation_logos a:hover {
   cursor: pointer;
+  color: #000000;
 }
-
 
 #end_page {
   position: absolute;
