@@ -704,3 +704,10 @@ a.about {
   width: 100%;
   position: fixed;
 }
+
+#source {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+}
